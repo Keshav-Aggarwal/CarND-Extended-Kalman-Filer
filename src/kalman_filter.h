@@ -1,6 +1,7 @@
 #ifndef KALMAN_FILTER_H_
 #define KALMAN_FILTER_H_
 #include "Eigen/Dense"
+#include "tools.h"
 
 class KalmanFilter {
 public:
@@ -32,7 +33,7 @@ public:
    * Destructor
    */
   virtual ~KalmanFilter();
-
+  Tools tools;
   /**
    * Init Initializes Kalman filter
    * @param x_in Initial state
@@ -64,6 +65,12 @@ public:
    */
   void UpdateEKF(const Eigen::VectorXd &z);
 
+  
+  /**
+  *This function contains the code that is common for both of the
+  *Functions i.e. Update and UpdateEKF.
+  */
+  void CommonCode(const Eigen::VectorXd &y);
 };
 
 #endif /* KALMAN_FILTER_H_ */

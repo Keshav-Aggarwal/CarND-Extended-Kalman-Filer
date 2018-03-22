@@ -2,7 +2,7 @@
 #define TOOLS_H_
 #include <vector>
 #include "Eigen/Dense"
-
+#include <string>
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using namespace std;
@@ -18,6 +18,8 @@ public:
   * Destructor.
   */
   virtual ~Tools();
+  
+  void Debug(string msg1);
 
   /**
   * A helper method to calculate RMSE.
@@ -28,6 +30,7 @@ public:
   * A helper method to calculate Jacobians.
   */
   MatrixXd CalculateJacobian(const VectorXd& x_state);
+
 
 };
 
